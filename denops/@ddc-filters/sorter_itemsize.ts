@@ -1,5 +1,4 @@
-import { BaseFilter, Item } from "https://deno.land/x/ddc_vim@v3.2.0/types.ts";
-import { FilterArguments } from "https://deno.land/x/ddc_vim@v3.2.0/base/filter.ts";
+import { BaseFilter, FilterArguments, Item } from "../deps.ts";
 
 type Params = {
   sameWordOnly: boolean;
