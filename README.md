@@ -28,3 +28,7 @@ item length sorter for ddc.vim
 ```
 
 ![image](https://user-images.githubusercontent.com/15827817/215272114-624944a5-a84e-4305-8b00-b5163d2b2a7e.png)
+
+### `sorter_lsp-detail-size`
+
+![image](https://github.com/ttak0422/eden/assets/15827817/6d4cde5c-1eb2-4c53-8b01-eb6037d87436)
