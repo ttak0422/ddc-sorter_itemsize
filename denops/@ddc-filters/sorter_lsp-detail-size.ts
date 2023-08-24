@@ -1,10 +1,7 @@
 import { BaseFilter, FilterArguments, Item } from "../deps.ts";
 
-type Params = {
-  sameWordOnly: boolean;
-};
+type Params = { [key: PropertyKey]: never };
 
-/** minimal. */
 type LeanUserData = {
   lspitem: string;
   // ...
@@ -20,18 +17,15 @@ function isLeanUserData(val: unknown): val is LeanUserData {
 
 export class Filter extends BaseFilter<Params> {
   override filter(
-    { items, filterParams }: FilterArguments<Params>,
+    { items }: FilterArguments<Params>,
   ): Promise<Item<unknown>[]> {
-    if (filterParams.sameWordOnly) {
-      Promise.resolve(items.sort((a, b) => {
-        if (a.word === b.word) {
-          return this.compareDetail(a, b);
-        } else {
-          return 0;
-        }
-      }));
-    }
-    return Promise.resolve(items.sort(this.compareDetail));
+    return Promise.resolve(items.sort((a, b) => {
+      if (a.word === b.word) {
+        return this.compareDetail(a, b);
+      } else {
+        return 0;
+      }
+    }));
   }
 
   private compareDetail(a: Item, b: Item): number {
@@ -50,8 +44,6 @@ export class Filter extends BaseFilter<Params> {
   }
 
   override params(): Params {
-    return {
-      sameWordOnly: false,
-    };
+    return {};
   }
 }
